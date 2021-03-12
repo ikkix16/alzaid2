@@ -14,7 +14,9 @@ export class Tab1Page {
 
 
   options: Observable<MenuOption[]>;
-  constructor(private menuCtlr: MenuController) {}
+  constructor(private menuCtlr: MenuController, private menu: MenuController) {
+    this.menu.enable(true, 'first');
+  }
 
 
   ngOnInit() {

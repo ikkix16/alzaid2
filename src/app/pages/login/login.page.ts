@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
+import { MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -13,9 +14,12 @@ export class LoginPage implements OnInit {
   pass:string;
   name:string;
 
-  constructor(private auth:AuthService, public router:Router) {}
+  constructor(private auth:AuthService, public router:Router, private menu: MenuController) {
+    this.menu.enable(false, 'first');
+  }
 
   ngOnInit() {
+    this.menu.enable(false, 'first');
   }
 
   onSubmitLogIn(){
