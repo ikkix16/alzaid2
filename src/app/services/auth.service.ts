@@ -55,10 +55,18 @@ export class AuthService {
   }
 
 
-  loginWithGoogle() {
+  async loginWithGoogle() {
+    try {
+      return this.Afauth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      
+    } catch (error) {
+      console.log(error)
+      
+    }
 
 
-    return this.google.login({}).then(res => {
+  /**
+   * return this.google.login({}).then(res => {
       const user_data_google = res;
 
       //this.Afauth.signInWithPopup(new firebase.auth.GoogleAuthProvider)
@@ -75,7 +83,7 @@ export class AuthService {
   
   
 
-
+*/
 
 
 

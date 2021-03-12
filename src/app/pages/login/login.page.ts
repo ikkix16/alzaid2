@@ -35,9 +35,22 @@ export class LoginPage implements OnInit {
 
   }
 
-   loginGoogle(){
+loginGoogle(){
+
+ 
+    this.auth.loginWithGoogle().then(res=>{
+      this.router.navigate(['tabs']);
+
+    }).catch(err=> alert('Datos son incorrectos o no existen'))
    
-   this.auth.loginWithGoogle().then(res=>{
+    
+
+  
+    
+ 
+  }
+  /**
+   * this.auth.loginWithGoogle().then(res=>{
       this.router.navigate(['tabs']);
 
     }).catch(err=> alert('Chingados son incorrectos o no existen'))
@@ -46,6 +59,8 @@ export class LoginPage implements OnInit {
      
 
   }
+   */
+   
     
   }
 /**
@@ -61,6 +76,5 @@ export class LoginPage implements OnInit {
  */
   
 
-  
 
-  
+
