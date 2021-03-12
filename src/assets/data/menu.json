@@ -1,0 +1,31 @@
+[{
+    "icon": "thumbs-up",
+    "name": "Publicaciones",
+    "redirectTo": "posts"
+},
+{
+    "icon": "contract",
+    "name": "Servicios",
+    "redirectTo": "services"
+},
+{
+    "icon": "mail",
+    "name": "Mensajes",
+    "redirectTo": "inbox"
+},
+{
+    "icon": "options",
+    "name": "Indicadores",
+    "redirectTo": "indicators"
+},
+{
+    "icon": "person",
+    "name": "Perfil del cuidador",
+    "redirectTo": "profile"
+},
+{
+    "icon": "exit",
+    "name": "Cerrar sesión",
+    "redirectTo": ""
+}
+]
