@@ -8,6 +8,8 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { firebaseConfig } from 'src/environments/environment';
 
+import { IonicStorageModule } from '@ionic/storage-angular'
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GooglePlus } from "@ionic-native/google-plus/ngx";
@@ -16,8 +18,14 @@ import { GooglePlus } from "@ionic-native/google-plus/ngx";
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,HttpClientModule],
+  imports: [BrowserModule,
+            IonicModule.forRoot(), 
+            AppRoutingModule,
+            AngularFireModule.initializeApp(firebaseConfig),
+            AngularFireAuthModule,
+            HttpClientModule,
+            IonicStorageModule.forRoot()
+            ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },GooglePlus],
   bootstrap: [AppComponent],
 })
