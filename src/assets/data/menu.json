@@ -11,7 +11,7 @@
 {
     "icon": "mail",
     "name": "Mensajes",
-    "redirectTo": "inbox"
+    "redirectTo": "tabs/chat"
 },
 {
     "icon": "options",

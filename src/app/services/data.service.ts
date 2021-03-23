@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { MenuOption } from 'src/app/interfaces/interfaces';
+import { MenuOption, RespuestaPublicacion } from 'src/app/interfaces/interfaces';
 
 @Injectable({
     providedIn: 'root'
@@ -18,6 +18,11 @@ import { MenuOption } from 'src/app/interfaces/interfaces';
 
     getMenuOptions(){
       return this.http.get<MenuOption[]>('/assets/data/menu.json');
+    }
+
+    getPublicaciones(){
+     return this.http.get('https://newsapi.org/v2/everything?q=tesla&from=2021-02-20&sortBy=publishedAt&apiKey=7f1d83429c374ebfb22c9783c37d4a51')
+
     }
   
   

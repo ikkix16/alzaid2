@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
-import { ComponentsModule } from '../components/components.module';
+import { ComponentsModule } from '../components.module';
 
 
 
@@ -19,7 +19,7 @@ import { ComponentsModule } from '../components/components.module';
     ComponentsModule
     
     
-  ],
+  ],exports:[],
   declarations: [TabsPage]
 })
 export class TabsPageModule {}
