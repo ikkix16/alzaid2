@@ -17,19 +17,26 @@ const routes: Routes = [
   {
     path: 'chat',
     loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
-  },
+   },
+  // {
+
+  //   path: 'profile',
+  //   loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  // },
   {
-    path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
-  },
-  {
-    path: 'service-detail',
-    loadChildren: () => import('./pages/services/service-detail/service-detail.module').then( m => m.ServiceDetailPageModule)
-  },
-  {
-    path: 'services',
-    loadChildren: () => import('./pages/services/services.module').then( m => m.ServicesPageModule)
-  },
+     path: 'service-detail',
+     loadChildren: () => import('./pages/service-detail/service-detail.module').then( m => m.ServiceDetailPageModule)
+   },
+  //  {
+  //   path: 'services',
+  //    loadChildren: () => import('./pages/services/services.module').then( m => m.ServicesPageModule)
+  //  },
+  // {
+
+  //   path: 'chatroom',
+  //   loadChildren: () => import('./chatroom/chatroom.module').then( m => m.ChatroomPageModule)
+  // }
+
 ];
 @NgModule({
   imports: [

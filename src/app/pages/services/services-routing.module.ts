@@ -9,8 +9,8 @@ const routes: Routes = [
     component: ServicesPage
   },
   {
-    path: 'service-detail',
-    loadChildren: () => import('./service-detail/service-detail.module').then( m => m.ServiceDetailPageModule)
+    path: 'services/service-detail',
+    loadChildren: () => import('../service-detail/service-detail.module').then( m => m.ServiceDetailPageModule)
   }
 ];
 

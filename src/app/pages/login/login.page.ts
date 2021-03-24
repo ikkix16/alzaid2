@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
 
   onSubmitLogIn(){
     this.auth.login(this.email,this.pass).then(res=>{
-      this.router.navigate(['/tabs/']);
+      this.router.navigate(['/tabs/tab1']);
 
     }).catch(err=> alert('Datos son incorrectos o no existen'))
    

@@ -9,8 +9,8 @@ import { TabsPage } from './tabs/tabs.page';
 
 
 @NgModule({
-  declarations: [HeaderComponent, MenuComponent,TabsPage],
-  exports:[HeaderComponent, MenuComponent,TabsPage,RouterModule],
+  declarations: [HeaderComponent, MenuComponent],
+  exports:[HeaderComponent, MenuComponent,RouterModule],
   imports: [
     CommonModule,
     IonicModule,

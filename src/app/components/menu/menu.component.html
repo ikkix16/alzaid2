@@ -2,11 +2,16 @@
   <ion-header>
       <ion-toolbar color="primary">
           <ion-title>Menú</ion-title>
+          <ion-button (click)="toggleMenu()">
+            <ion-icon slot="icon-only" name="menu"></ion-icon>
+            
+          </ion-button>
       </ion-toolbar>
   </ion-header>
 
   <ion-content>
       <ion-list>
+
 
           <ion-menu-toggle *ngFor="let o of options | async">
               <ion-item [routerLink]="o.redirectTo">

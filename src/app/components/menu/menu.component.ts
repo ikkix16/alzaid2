@@ -13,12 +13,17 @@ export class MenuComponent implements OnInit {
 
   options: Observable<MenuOption[]>;
 
-  constructor(private dataService: DataService, private menu: MenuController) {
+  constructor(private menuCtrl:MenuController,private dataService: DataService, private menu: MenuController) {
     this.menu.enable(true, 'first');
    }
 
   ngOnInit() {
    this.options = this.dataService.getMenuOptions();
+  }
+
+  toggleMenu(){
+    this.menuCtrl.toggle();
+
   }
 
 }
