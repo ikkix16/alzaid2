@@ -8,6 +8,7 @@ import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 import { firebaseConfig } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +23,7 @@ import { ComponentsModule } from './components/components.module';
   imports: [BrowserModule, ComponentsModule, RouterModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,HttpClientModule],
   providers: [StatusBar,
-    SplashScreen,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },GooglePlus],
+    SplashScreen, CallNumber, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },GooglePlus],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
