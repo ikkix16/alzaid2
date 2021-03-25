@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { Observable } from 'rxjs';
+import { Poost } from '../interfaces/interfaces';
+import { PostsService } from '../services/posts.service';
 import { MenuOption } from '../interfaces/interfaces';
 
 
@@ -11,20 +12,20 @@ import { MenuOption } from '../interfaces/interfaces';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  poost: Poost[] = [];
+
+  constructor(private postsService: PostsService) {}
+
+  ngOnInit(){
+    
+    this.postsService.getPoost()
+    .subscribe(resp =>{
+      console.log(resp);
+      this.poost.push(...resp.poost);
+    });
 
 
-  options: Observable<MenuOption[]>;
-  constructor(private menuCtlr: MenuController, private menu: MenuController) {
-    this.menu.enable(true, 'first');
+
   }
-
-
-  ngOnInit() {
-  }
-
-  toggleMenu(){
-    this.menuCtlr.toggle();
-  }
-
 
 }

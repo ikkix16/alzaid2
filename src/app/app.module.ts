@@ -11,6 +11,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { firebaseConfig } from 'src/environments/environment';
 
+import { IonicStorageModule } from '@ionic/storage-angular'
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GooglePlus } from "@ionic-native/google-plus/ngx";
@@ -21,7 +23,7 @@ import { ComponentsModule } from './components/components.module';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, ComponentsModule, RouterModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,HttpClientModule],
+    AngularFireAuthModule,HttpClientModule,IonicStorageModule.forRoot()],
   providers: [StatusBar,
     SplashScreen, CallNumber, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },GooglePlus],
   bootstrap: [AppComponent],

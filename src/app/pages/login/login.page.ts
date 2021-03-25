@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
 import { MenuController } from '@ionic/angular';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { NavController } from '@ionic/angular';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -10,75 +13,41 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  email:string;
-  pass:string;
-  name:string;
-
-  constructor(private auth:AuthService, public router:Router, private menu: MenuController) {
-    this.menu.enable(false, 'first');
+  loginUser = {
+    email: 'marioxbarreras@gmail.com',
+    password: '123456'
   }
+
+  registerUser={
+    email: '',
+    password:'',
+    nombre:''
+  }
+  
+  constructor(private usuarioService: UsuarioService,
+              private navTabs: NavController) { }
 
   ngOnInit() {
-    this.menu.enable(false, 'first');
   }
 
-  onSubmitLogIn(){
-    this.auth.login(this.email,this.pass).then(res=>{
-      this.router.navigate(['/tabs/tab1']);
+  async login(fLogin: NgForm) {
+    if(fLogin.invalid){
+      return;
+    }
+    const valido = await this.usuarioService.login(this.loginUser.email, this.loginUser.password);
 
-    }).catch(err=> alert('Datos son incorrectos o no existen'))
-   
-    
-
-  }
-  
-  
-  SignUp(){
-    this.router.navigate(['register']);
+    if(valido){
+      this.navTabs.navigateRoot('/tabs/tab1')
+    }
 
 
   }
 
-loginGoogle(){
-
- 
-    this.auth.loginWithGoogle().then(res=>{
-      this.router.navigate(['tabs']);
-
-    }).catch(err=> alert('Datos son incorrectos o no existen'))
-   
-    
-
-  
-    
- 
+  register(fRegister: NgForm){
+    if(fRegister.invalid){
+      return;
+    }
+    this.usuarioService.register(this.registerUser.email,this.registerUser.password, this.registerUser.nombre);
   }
-  /**
-   * this.auth.loginWithGoogle().then(res=>{
-      this.router.navigate(['tabs']);
-
-    }).catch(err=> alert('Chingados son incorrectos o no existen'))
-   
-    
-     
-
-  }
-   */
-   
-    
-  }
-/**
- * loginGoogle(){
-    this.auth.loginGoogle().then().then(res=>{
-      this.router.navigate(['/inicio']);
-
-    }).catch(err=> alert('Chingadamadre'))
-   
-
-  }
- * 
- */
-  
-
-
+}
 
