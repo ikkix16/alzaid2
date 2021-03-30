@@ -1,3 +1,28 @@
-<p>
-  post works!
-</p>
+
+<div class="poost">
+  <ion-item>
+    <ion-label>
+      <h3>
+        {{poost.usuario.nombre}} 
+      </h3>
+      <h1>{{poost.title}}</h1>
+    </ion-label>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label text-wrap>
+      <p>
+        {{poost.description}}
+      </p>
+    </ion-label>
+  </ion-item>
+<ion-row>
+  <ion-item lines ="none">
+    <ion-icon name="star-outline"></ion-icon>
+  </ion-item>
+  <ion-button (click)="eliminarPoost()"
+              color="primary"
+              [(ngModel)]="poost.description">
+              Eliminar
+  </ion-button>
+</ion-row>
+</div>

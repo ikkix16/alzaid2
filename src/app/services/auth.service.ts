@@ -25,7 +25,7 @@ export class AuthService {
   // private google: GooglePlus,
   constructor(public Afauth: AngularFireAuth, private google: GooglePlus, private http: HttpClientModule, private plt: Platform, private router: Router) { }
 
-  login(email: string, pass: string) {
+  /*login(email: string, pass: string) {
 
     return new Promise((resolve, rejected) => {
       this.Afauth.signInWithEmailAndPassword(email, pass).then(user =>
@@ -37,7 +37,7 @@ export class AuthService {
 
 
 
-  }
+  }*/
 
   singup(email: string, pass: string) {
     return new Promise((resolve, rejected) => {

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Poost } from 'src/app/interfaces/interfaces';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-post',
@@ -7,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  @Input() poost: Poost = {};
 
+  constructor(private postsService: PostsService) { }
+
+  
+  
   ngOnInit() {}
+
+  eliminarPoost(){
+    this.postsService.eliminarPoost(this.poost._id);
+
+  }
 
 }

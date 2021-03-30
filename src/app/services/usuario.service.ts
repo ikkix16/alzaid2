@@ -10,11 +10,10 @@ const URL = environment.url;
 })
 export class UsuarioService {
 
-  token: string = null; 
-    constructor(private http: HttpClient,
-                private storage: Storage){
-    }
+  constructor(private http: HttpClient, private storage: Storage){
+  }
 
+    token: string = null;
 
     login(email: string, password: string){
       return new Promise(resolve =>{
@@ -34,8 +33,12 @@ export class UsuarioService {
             }
         });
       });
+    }
 
-        
+    async guardarToken(token: string){
+      this.token= token;
+      this.storage.create();
+      await this.storage.set('token', token);
     }
 
     register(email:string,password:string,nombre:string){
@@ -47,9 +50,5 @@ export class UsuarioService {
       });
     }
 
-    async guardarToken(token: string){
-      this.token= token;
-      await this.storage.set('token', token);
-    }
   }
 

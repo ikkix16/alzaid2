@@ -14,18 +14,38 @@ import { MenuOption } from '../interfaces/interfaces';
 export class Tab1Page {
   poost: Poost[] = [];
 
+  scrollActived = true;
+
   constructor(private postsService: PostsService) {}
 
   ngOnInit(){
+
+    this.siguientes();
     
-    this.postsService.getPoost()
+  }
+
+  siguientes(event?, pull: boolean = false){
+
+    if(pull){
+      this.scrollActived =true;
+      this.poost = [];
+    }
+    this.postsService.getPoost(pull)
     .subscribe(resp =>{
       console.log(resp);
       this.poost.push(...resp.poost);
+
+      if(event){
+        event.target.complete();
+        if(resp.poost.length === 0){
+            this.scrollActived =false;
+         }
+      }
     });
+  }
 
-
-
+  recargar(event){
+    this.siguientes(event,true);
   }
 
 }

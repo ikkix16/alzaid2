@@ -1,24 +1,34 @@
+import { ViewportScroller } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../interfaces/interfaces';
 import { DataService } from '../services/data.service';
+import { PostsService } from '../services/posts.service';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page implements OnInit{
+export class Tab2Page{
 
-  noticias: Article[]=[]
+  constructor(private http: HttpClient, private postsService: PostsService, ) {}
 
-  constructor(private dataService:DataService) {}
+  poost= {
+    title: 'Joel',
+    description: 'Luna',
+  };
 
   ngOnInit(){
-    this.dataService.getPublicaciones().subscribe(resp=>{
-      console.log('noticias', resp)
-      
-      
-    })
+
+  }
+
+  crearPoost(){
+
+    this.postsService.crearPoost(this.poost);
+    
   }
 
 }
