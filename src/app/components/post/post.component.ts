@@ -17,8 +17,9 @@ export class PostComponent implements OnInit {
   
   ngOnInit() {}
 
-  eliminarPoost(){
-    this.postsService.eliminarPoost(this.poost._id);
+  eliminarPoost(poost){
+
+    this.postsService.eliminarPoost(poost._id);
 
   }
 

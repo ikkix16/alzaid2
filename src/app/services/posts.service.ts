@@ -43,9 +43,9 @@ export class PostsService {
   }
 
 
-  eliminarPoost(id: string){
+  eliminarPoost(id){
 
-    this.http.delete(`${URL}/poost/delete/:id`)
+    this.http.delete(`${URL}/poost/delete/` +id)
     .subscribe(resp=>{
       console.log(resp)
     })

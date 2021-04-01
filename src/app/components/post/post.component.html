@@ -19,9 +19,8 @@
   <ion-item lines ="none">
     <ion-icon name="star-outline"></ion-icon>
   </ion-item>
-  <ion-button (click)="eliminarPoost()"
-              color="primary"
-              [(ngModel)]="poost.description">
+  <ion-button (click)="eliminarPoost(poost)"
+              color="primary">
               Eliminar
   </ion-button>
 </ion-row>
