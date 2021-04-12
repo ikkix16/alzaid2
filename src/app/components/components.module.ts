@@ -7,18 +7,24 @@ import { RouterModule } from '@angular/router';
 import { TabsPage } from './tabs/tabs.page';
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './post/post.component';
+import { CommentariosComponent } from './commentarios/commentarios.component';
 
 
 
 @NgModule({
+  entryComponents:[
+    CommentariosComponent
+  ],
   declarations: [HeaderComponent, 
     MenuComponent,
     PostsComponent,
-    PostComponent],
+    PostComponent,
+    CommentariosComponent],
   exports:[HeaderComponent,
     MenuComponent,
     PostComponent,
     PostsComponent,
+    CommentariosComponent,
      RouterModule],
   imports: [
     CommonModule,

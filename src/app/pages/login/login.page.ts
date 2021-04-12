@@ -5,6 +5,7 @@ import { MenuController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
+import { UiServiceService } from 'src/app/services/ui-service.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class LoginPage implements OnInit {
   }
   
   constructor(private usuarioService: UsuarioService,
-              private navTabs: NavController) { }
+              private navTabs: NavController, private uiService: UiServiceService) { }
 
   ngOnInit() {
   }
@@ -38,16 +39,25 @@ export class LoginPage implements OnInit {
 
     if(valido){
       this.navTabs.navigateRoot('/tabs/tab1')
+    }else{
+      this.uiService.alertMenssage('Usuario/contrasenia no son correctas'); 
     }
 
 
   }
 
-  register(fRegister: NgForm){
+  async register(fRegister: NgForm){
     if(fRegister.invalid){
       return;
     }
-    this.usuarioService.register(this.registerUser.email,this.registerUser.password, this.registerUser.nombre);
+   const valido = await this.usuarioService.register(this.registerUser);
+
+   if(valido){
+      this.navTabs.navigateRoot('/tabs/tab1')
+    }
+    else{
+      this.uiService.alertMenssage('El correo ya existe'); 
+    }
   }
 }
 

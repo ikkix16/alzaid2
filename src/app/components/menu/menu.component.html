@@ -17,9 +17,11 @@
               <ion-item [routerLink]="o.redirectTo">
                   <ion-icon slot="start" [name]="o.icon"></ion-icon>
                   <ion-label>{{o.name}}</ion-label>
-              </ion-item>
+              </ion-item>   
           </ion-menu-toggle>
-
+          <ion-button (click)="logout()">
+            Cerrar Sesion
+        </ion-button>
       </ion-list>
   </ion-content>
 </ion-menu>

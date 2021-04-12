@@ -27,10 +27,6 @@
     "icon": "person",
     "name": "Perfil del cuidador",
     "redirectTo": "profile"
-},
-{
-    "icon": "exit",
-    "name": "Cerrar sesión",
-    "redirectTo": ""
 }
+
 ]

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Identifiers } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { Poost, RespuestaPoosts } from '../interfaces/interfaces';
 import { UsuarioService } from './usuario.service';
@@ -16,7 +17,7 @@ export class PostsService {
 
   paginaPost = 0;
 
-  constructor(private http: HttpClient, private usuarioService: UsuarioService) { }
+  constructor(private http: HttpClient, private usuarioService: UsuarioService, private navCtrl: NavController) { }
 
 
   getPoost(pull: boolean = false){
@@ -50,6 +51,13 @@ export class PostsService {
       console.log(resp)
     })
 
+  }
+
+  comentarPoost(id){
+   this.http.get(`${URL}/poost/poost/comment/:id` + id)
+    .subscribe(resp=>{
+      console.log(resp)
+    });
   }
 }
 

@@ -1,0 +1,31 @@
+<div class="=poost">
+<ion-item>
+  <ion-label>
+    <h3>
+      {{poost.usuario.nombre}} 
+    </h3>
+    <h1>{{poost.title}}</h1>
+  </ion-label>
+</ion-item>
+<ion-item lines="none">
+  <ion-label text-wrap>
+    <p>
+      {{poost.description}}
+    </p>
+  </ion-label>
+</ion-item>
+
+<ion-item>
+  <<ion-item>
+    <ion-label position="floating">Title</ion-label>
+    <ion-input name="comment" type="comment"  [(ngModel)]="poost.comment"></ion-input>
+  </ion-item>
+</ion-item>
+<ion-item>
+  <ion-button (click)="comentarPoost(poost)"
+              color="primary">
+              Comentar
+  </ion-button>
+</ion-item>
+
+</div>

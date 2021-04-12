@@ -3,6 +3,8 @@ import { MenuController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { MenuOption } from 'src/app/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
+import { PostsService } from 'src/app/services/posts.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-menu',
@@ -13,7 +15,7 @@ export class MenuComponent implements OnInit {
 
   options: Observable<MenuOption[]>;
 
-  constructor(private menuCtrl:MenuController,private dataService: DataService, private menu: MenuController) {
+  constructor(private menuCtrl:MenuController,private dataService: DataService, private menu: MenuController, private usuarioService: UsuarioService, private postService: PostsService) {
     this.menu.enable(true, 'first');
    }
 
@@ -26,4 +28,10 @@ export class MenuComponent implements OnInit {
 
   }
 
+  logout(){
+    this.postService.paginaPost = 0;
+    this.usuarioService.logout();
+    
+
+  }
 }
