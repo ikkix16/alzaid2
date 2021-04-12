@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { MenuOption, RespuestaPublicacion } from 'src/app/interfaces/interfaces';
-
+import { environment } from 'src/environments/environment';
+const URL= environment.url
 @Injectable({
     providedIn: 'root'
   })
@@ -11,9 +12,10 @@ import { MenuOption, RespuestaPublicacion } from 'src/app/interfaces/interfaces'
   
     constructor(private http: HttpClient ) { }
   
-
+      // https://jsonplaceholder.typicode.com/users
+      // http://localhost:3000/user/
     getUsers(){
-       return this.http.get('https://jsonplaceholder.typicode.com/users'); 
+       return this.http.get(`${URL}/user/todos`); 
     }
 
     getMenuOptions(){
