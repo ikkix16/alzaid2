@@ -8,6 +8,8 @@ import { TabsPage } from './tabs/tabs.page';
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './post/post.component';
 import { CommentariosComponent } from './commentarios/commentarios.component';
+import { CuadropublicacionComponent } from './cuadropublicacion/cuadropublicacion.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,17 +21,20 @@ import { CommentariosComponent } from './commentarios/commentarios.component';
     MenuComponent,
     PostsComponent,
     PostComponent,
-    CommentariosComponent],
+    CommentariosComponent,
+  CuadropublicacionComponent],
   exports:[HeaderComponent,
     MenuComponent,
     PostComponent,
     PostsComponent,
     CommentariosComponent,
-     RouterModule],
+     RouterModule,
+     CuadropublicacionComponent],
   imports: [
     CommonModule,
     IonicModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class ComponentsModule { }
