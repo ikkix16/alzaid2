@@ -1,28 +1,72 @@
-<!--<app-header></app-header> -->
+<ion-header>
+  <ion-toolbar>
+
+  
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/" >Atras</ion-back-button>
+  </ion-buttons>
+
+
+  <ion-title>Registrarse</ion-title>
+</ion-toolbar>
+</ion-header>
 
 <ion-content class="ion-content">
 
   <!-- Textarea in an item with a floating label -->
 <div class="margenesTXTLabel">
-<ion-item>
-  <ion-label position="floating">Nombre</ion-label>
-  <ion-textarea></ion-textarea>
+<ion-item>  
+  <ion-input placeholder="Nombre completo"type="text" [(ngModel)]="nombre" name="nombre"></ion-input>
 </ion-item>
 </div>
 <!-- Textarea in an item with a floating label -->
 <div  class="margenesTXTLabel">
 <ion-item>
-  <ion-label position="floating">Correo</ion-label>
-  <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+ 
+  <ion-input placeholder="Correo Electronico"type="text" [(ngModel)]="email" name="email"></ion-input>
 </ion-item>
 </div>
 <!-- Textarea in an item with a floating label -->
 <div  class="margenesTXTLabel">
  <ion-item>
-  <ion-label position="floating">Contraseña</ion-label>
-  <ion-input type="password"  [(ngModel)]="pass" name="password"></ion-input>
+  
+  <ion-input placeholder="Contraseña"type="password"  [(ngModel)]="pass" name="password"></ion-input>
  </ion-item>
 </div>
+
+
+<ion-item class="margenesTXTLabel">
+  
+<ion-label>Fecha de nacimiento</ion-label>
+  <ion-item>
+    <ion-label >DD/MM/YYYY</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" min="1920-01-01" max="2000-01-01"></ion-datetime>
+  </ion-item>
+  
+</ion-item>
+
+
+<ion-item class="margenesTXTLabel">
+  <ion-label>Tiempo de cuidador</ion-label>
+  <ion-select placeholder="Selecciona">
+      <ion-select-option value="1">Menos de 1 año</ion-select-option>
+      <ion-select-option value="2">1 a 3 años</ion-select-option>
+      <ion-select-option value="3">Más de 3 años</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<ion-item class="margenesTXTLabel">
+  <ion-label>La persona cuidada es mi:</ion-label>
+  <ion-select placeholder="Selecciona">
+      <ion-select-option value="1">Pareja</ion-select-option>
+      <ion-select-option value="2">Papá/Mamá</ion-select-option>
+      <ion-select-option value="3">Abuelo(a)</ion-select-option>
+      <ion-select-option value="4">Otro familiar</ion-select-option>
+      <ion-select-option value="5">Amigo(a)</ion-select-option>
+  </ion-select>
+</ion-item>
+
+
 
 <div class="botonesMargenes">
   <ion-button color="primary" expand="full" shape="round" size="small" class="margenBotonRegistrar" (click)="onSubmitSignUp()"

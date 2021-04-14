@@ -26,5 +26,5 @@ export class RegisterPage implements OnInit {
 
     }).catch(err=> alert('Datos son incorrectos'))
 }
-
+z
 }

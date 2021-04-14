@@ -31,6 +31,11 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  registrar2(){
+    this.navTabs.navigateRoot('register')
+
+  }
+
   async login(fLogin: NgForm) {
     if(fLogin.invalid){
       return;

@@ -1,6 +1,11 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/interfaces/interfaces';
 import { User } from 'src/app/models/user.model';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { environment } from 'src/environments/environment';
 //import { Storage } from '@ionic/storage';
+const URL=environment.url
 
 
 @Component({
@@ -9,8 +14,8 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-
-  user: User = new User();
+  usuario:Usuario={};
+  
   segment: Boolean = true;
   // @ViewChild('barCanvas') barCanvas: ElementRef;
 
@@ -18,7 +23,7 @@ export class ProfilePage implements OnInit {
   // bars: Chart;
   // colorArray: any;
 
-  constructor(/*private storage: Storage*/) {
+  constructor(private http:HttpClient,private usuarioService:UsuarioService/*private storage: Storage*/) {
     /*this.storage.get('usuario').then((val) => {
       this.user = val;
     })*/
@@ -26,6 +31,22 @@ export class ProfilePage implements OnInit {
 
    ngOnInit() {
     this.cambiarSegment(1);
+
+    const headers= new HttpHeaders({
+      'x-token':this.usuarioService.token
+      })
+
+      this.http.get(`${URL}/user/`,{headers}).subscribe(resp=>{
+        if(resp['ok'])
+        this.usuario=resp['usuario']
+        
+         const name= this.usuario.nombre
+       
+        
+         
+        
+   
+      })
   }
 
   segmentChanged(event){

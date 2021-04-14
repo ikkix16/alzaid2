@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent, ToastController } from '@ionic/angular';
 import { Socket } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
 import { Usuario } from '../interfaces/interfaces';
@@ -16,6 +16,7 @@ export class ChatroomPage implements OnInit {
   messages=[];
   currentUser='';
   usuario:Usuario={};
+  @ViewChild(IonContent) content: IonContent
   
   
 
@@ -61,10 +62,12 @@ export class ChatroomPage implements OnInit {
  
     this.socket.fromEvent('message').subscribe(message => {
       this.messages.push(message);
+      this.content.scrollToBottom(0);
     });
 
     this.socket.fromEvent('mesage').subscribe(message=>{
       this.messages.push(message)
+      this.content.scrollToBottom(0);
     })
 
 
@@ -79,6 +82,7 @@ ionViewWillLeave() {
 sendMessage() {
   this.socket.emit('send-message', { text: this.message });
   this.message = '';
+  this.content.scrollToBottom(0);
 }
 
 async showToast(msg) {

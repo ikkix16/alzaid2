@@ -26,7 +26,7 @@
 {
     "icon": "person",
     "name": "Perfil del cuidador",
-    "redirectTo": "profile"
+    "redirectTo": "tabs/profile"
 }
 
 ]

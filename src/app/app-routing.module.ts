@@ -20,11 +20,11 @@ const routes: Routes = [
     path: 'chat',
     loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
    },
-  // {
+   {
 
-  //   path: 'profile',
-  //   loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
-  // },
+     path: 'register',
+     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+   },
   {
      path: 'service-detail',
      loadChildren: () => import('./pages/service-detail/service-detail.module').then( m => m.ServiceDetailPageModule)
