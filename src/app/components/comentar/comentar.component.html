@@ -1,0 +1,24 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>
+      Comentar
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="comentarPoost(poost,comment)"
+              color="primary">
+              Comentar
+  </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+<ion-item>
+  <ion-label>
+    <h1>{{poost.title}}</h1>
+  </ion-label>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Description</ion-label>
+  <ion-input name="description" type="description" [(ngModel)]="comment.description"></ion-input>
+</ion-item>
+</ion-content>

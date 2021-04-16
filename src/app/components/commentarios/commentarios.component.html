@@ -1,0 +1,39 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>
+      Comentarios
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="verPoost(poost)"
+              color="primary">
+              verPoost
+  </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+<div class="=poost">
+<ion-item>
+  <ion-label>
+    <h3>
+      {{poost.usuario.nombre}} 
+    </h3>
+    <h1>{{poost.title}}</h1>
+  </ion-label>
+</ion-item>
+<ion-item lines="none">
+  <ion-label text-wrap>
+    <p>
+      {{poost.description}}
+    </p>
+  </ion-label>
+</ion-item>
+
+
+<app-comentario [comment]="comment"> </app-comentario>
+
+
+
+</div>
+
+</ion-content>
