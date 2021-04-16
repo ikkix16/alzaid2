@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from './header/header.component';
-<<<<<<< Updated upstream
-=======
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { TabsPage } from './tabs/tabs.page';
@@ -14,44 +12,35 @@ import {FormsModule} from '@angular/forms'
 import { ComentariosComponent } from './comentarios/comentarios.component';
 import { ComentarioComponent } from './comentario/comentario.component';
 import { ComentarComponent } from './comentar/comentar.component';
->>>>>>> Stashed changes
 
 
 
 @NgModule({
-<<<<<<< Updated upstream
-  declarations: [HeaderComponent],
-  exports:[HeaderComponent],
-  imports: [
-    CommonModule,
-    IonicModule
-    
-=======
   entryComponents:[
+    CommentariosComponent
   ],
   declarations: [HeaderComponent, 
     MenuComponent,
     PostsComponent,
     PostComponent,
+    ComentarComponent,
     CommentariosComponent,
     ComentariosComponent,
-    ComentarComponent,
     ComentarioComponent],
   exports:[HeaderComponent,
     MenuComponent,
     PostComponent,
     PostsComponent,
+    ComentarComponent,
     CommentariosComponent,
     ComentariosComponent,
     ComentarioComponent,
-    ComentarComponent,
      RouterModule],
   imports: [
     CommonModule,
     IonicModule,
     RouterModule,
     FormsModule
->>>>>>> Stashed changes
   ]
 })
 export class ComponentsModule { }
