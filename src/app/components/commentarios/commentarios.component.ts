@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { PostsService } from 'src/app/services/posts.service';
+import {Comment} from 'src/app/interfaces/interfaces'
+import { ComentarComponent } from '../comentar/comentar.component';
 
 @Component({
   selector: 'app-commentarios',
@@ -7,18 +10,35 @@ import { PostsService } from 'src/app/services/posts.service';
   styleUrls: ['./commentarios.component.scss'],
 })
 export class CommentariosComponent implements OnInit {
-
   @Input() poost;
-  
-  constructor(private postsService: PostsService) { }
+  comment: Comment[];
+
+  constructor(private postsService: PostsService,private modalCtrl: ModalController) { }
+
 
   ngOnInit() {
-
-    console.log('poost', this.poost);
+    this.ObtenerComentarios(this.poost);
   }
 
-  comentarPoost(poost){
-    this.postsService.comentarPoost(poost._id);
+  async verPoost(poost){
+
+    const modal = await this.modalCtrl.create({
+       component: ComentarComponent,
+       componentProps:{
+         poost
+       }
+     })
+     modal.present();
+    }
+
+  ObtenerComentarios(poost){
+    this.comment = [];
+    this.postsService.getComment(poost._id)
+    .subscribe(resp =>{
+      console.log(resp);
+      this.comment.push(...resp.comment);
+    });
   }
+
 
 }

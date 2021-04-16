@@ -32,6 +32,19 @@ export interface RespuestaPoosts {
   poost: Poost[];
 }
 
+export interface RespuestaComment {
+  ok: boolean;
+  comment: Comment[];
+}
+
+export interface Comment{
+  date?: String;
+  _id?: string;
+  description?: string;
+  poost?: string;
+  __v?: number;
+}
+
 export interface Poost {
   views?: number;
   likes?: number;

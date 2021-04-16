@@ -3,7 +3,7 @@ import { Identifiers } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
-import { Poost, RespuestaPoosts } from '../interfaces/interfaces';
+import { Poost, RespuestaPoosts, RespuestaComment } from '../interfaces/interfaces';
 import { UsuarioService } from './usuario.service';
 
 
@@ -31,6 +31,17 @@ export class PostsService {
     return this.http.get<RespuestaPoosts>(`${URL}/poost/?pagina=${this.paginaPost}`)
   }
 
+  getComment(id,pull: boolean = false){
+
+    if(pull){
+      this.paginaPost = 0;
+    }
+
+    this.paginaPost ++;
+    
+    return this.http.get<RespuestaComment>(`${URL}/poost/comments/` +id)
+  }
+
   crearPoost(poost){
 
     const headers = new HttpHeaders({
@@ -53,11 +64,15 @@ export class PostsService {
 
   }
 
-  comentarPoost(id){
-   this.http.get(`${URL}/poost/poost/comment/:id` + id)
+  comentarPoost(id,comment){
+
+    const headers = new HttpHeaders({
+      'x-token': this.usuarioService.token
+    });
+
+   this.http.post(`${URL}/poost/comment/`  +id,comment)
     .subscribe(resp=>{
       console.log(resp)
     });
   }
 }
-

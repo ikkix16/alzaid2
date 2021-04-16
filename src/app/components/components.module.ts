@@ -10,6 +10,9 @@ import { PostComponent } from './post/post.component';
 import { CommentariosComponent } from './commentarios/commentarios.component';
 import { CuadropublicacionComponent } from './cuadropublicacion/cuadropublicacion.component';
 import { FormsModule } from '@angular/forms';
+import { ComentarComponent } from './comentar/comentar.component';
+import { ComentarioComponent } from './comentario/comentario.component';
+import { ComentariosComponent } from './comentarios/comentarios.component';
 
 
 
@@ -21,12 +24,18 @@ import { FormsModule } from '@angular/forms';
     MenuComponent,
     PostsComponent,
     PostComponent,
+    ComentarComponent,
+    ComentarioComponent,
+    ComentariosComponent,
     CommentariosComponent,
   CuadropublicacionComponent],
   exports:[HeaderComponent,
     MenuComponent,
     PostComponent,
     PostsComponent,
+    ComentarComponent,
+    ComentarioComponent,
+    ComentariosComponent,
     CommentariosComponent,
      RouterModule,
      CuadropublicacionComponent],
