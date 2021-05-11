@@ -17,10 +17,24 @@
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <meta name="google-signin-client_id" content="714892732929-p4ggm5cfdvd8ss219cq5kg6r6uc1cpk3.apps.googleusercontent.com">
+
+  
 </head>
 
+
+
 <body>
+  
+  
   <app-root></app-root>
+  
+  <div hidden>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+</div>
+  
 </body>
 
 </html>

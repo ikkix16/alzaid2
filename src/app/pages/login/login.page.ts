@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
 import { MenuController } from '@ionic/angular';
@@ -7,6 +7,7 @@ import { NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 
+declare const gapi: any;
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,9 @@ import { UiServiceService } from 'src/app/services/ui-service.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
+  auth2:any;
+
   loginUser = {
     email: 'marioxbarreras@gmail.com',
     password: '123456'
@@ -29,7 +33,51 @@ export class LoginPage implements OnInit {
               private navTabs: NavController, private uiService: UiServiceService) { }
 
   ngOnInit() {
+    this.googleInit();
   }
+
+
+  googleInit(){
+    gapi.load('auth2',()=>{
+      this.auth2=gapi.auth2.getAuthInstance({
+        client_id:'714892732929-p4ggm5cfdvd8ss219cq5kg6r6uc1cpk3.apps.googleusercontent.com',
+        cookiepolicy:'single_host_origin',
+        scope:'profile email'
+      });
+
+
+      this.attachSignIn(document.getElementById('btnGoogle'));
+    });
+
+
+    
+  }
+
+  attachSignIn(element){
+    
+    this.auth2.attachClickHandler(element,{},googleUser=>{
+     // let profile=googleUser.getBasicProfile();
+
+     let profile = googleUser.getBasicProfile();
+      let token= googleUser.getAuthResponse().id_token;
+
+      console.log(profile)
+
+      console.log()
+      
+      this.usuarioService.loginGoogle(token)
+      .subscribe(()=>{ 
+        this.navTabs.navigateRoot('/tabs/tab1')
+      })
+      
+    });
+
+    
+      
+  }
+
+
+  
 
   registrar2(){
     this.navTabs.navigateRoot('register')

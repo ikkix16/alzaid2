@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular'
 import { environment } from '../../environments/environment';
 import { Usuario } from '../interfaces/interfaces';
+import { map } from "rxjs/operators";
 
 const URL = environment.url;
 
@@ -19,6 +20,39 @@ export class UsuarioService {
    
   token: string = null;
   usuario: Usuario ={};
+  
+
+
+  guardarStorageGoogle(token:string, usuario:Usuario){
+    //localStorage.setItem('id',id)
+    localStorage.setItem('token',token)
+    localStorage.setItem('usuario',JSON.stringify(usuario))
+
+    this.usuario=usuario;
+    this.token=token;
+
+  }
+  loginGoogle(token:string){
+
+    
+    
+      let url = environment.url+'/user/googlelogin/'
+    
+    
+      
+     return this.http.post(`${URL}/user/googlelogin`,{token})
+          .pipe(map((resp:any)=>{
+
+      this.guardarStorageGoogle(resp.token,resp.usuario);
+      
+      
+      return true;
+     }));
+     
+           
+
+    
+  }
 
   login(email: string, password: string){
     return new Promise(resolve =>{
