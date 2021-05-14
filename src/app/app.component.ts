@@ -11,8 +11,10 @@ import { DataService } from './services/data.service';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
+  providers: [DataService]
 })
 export class AppComponent {
+
   
   options: Observable<MenuOption[]>;
   
@@ -24,6 +26,7 @@ export class AppComponent {
   ) {
     this.initializeApp();
   }
+  
 
   initializeApp() {
     this.platform.ready().then(() => {

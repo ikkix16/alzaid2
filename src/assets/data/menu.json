@@ -1,7 +1,7 @@
 [{
     "icon": "thumbs-up",
-    "name": "Publicaciones",
-    "redirectTo": "posts"
+    "name": "Favoritos",
+    "redirectTo": "tabs/favorites"
 },
 {
     "icon": "contract",

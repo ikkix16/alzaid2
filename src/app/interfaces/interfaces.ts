@@ -1,3 +1,6 @@
+import { NumberValueAccessor } from "@angular/forms";
+import { PostComponent } from "../components/post/post.component";
+
 export interface MenuOption{
     icon: string;
     name: string;
@@ -26,10 +29,10 @@ export interface Source {
   name: string;
 }
 
-export interface RespuestaPoosts {
+export interface RespuestaPosts {
   ok: boolean;
   pagina: number;
-  poost: Poost[];
+  post: Post[];
 }
 
 export interface RespuestaComment {
@@ -37,15 +40,33 @@ export interface RespuestaComment {
   comment: Comment[];
 }
 
+export interface RespuestaFavorites{
+  ok: boolean;
+  pagina: number;
+  favorite: Favorite[];
+}
+
+export interface Favorite{
+  date?: string;
+  _id?: string;
+  _v?: number;
+  views?: number;
+  title?: string;
+  description?: string;
+  usuario?: Usuario;
+  user?: string;
+  idpost?: string;
+}
+
 export interface Comment{
   date?: String;
   _id?: string;
   description?: string;
-  poost?: string;
+  poost?: Post;
   __v?: number;
 }
 
-export interface Poost {
+export interface Post {
   views?: number;
   likes?: number;
   _id?: string;

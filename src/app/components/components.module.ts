@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { ComentarComponent } from './comentar/comentar.component';
 import { ComentarioComponent } from './comentario/comentario.component';
 import { ComentariosComponent } from './comentarios/comentarios.component';
+import {FavoritesComponent} from './favorites/favorites.component'
+import {FavoriteComponent} from './favorite/favorite.component'
+import { FavoritoDetalleComponent } from './favorito-detalle/favorito-detalle.component';
 
 
 
@@ -28,6 +31,9 @@ import { ComentariosComponent } from './comentarios/comentarios.component';
     ComentarioComponent,
     ComentariosComponent,
     CommentariosComponent,
+    FavoritesComponent,
+    FavoriteComponent,
+    FavoritoDetalleComponent,
   CuadropublicacionComponent],
   exports:[HeaderComponent,
     MenuComponent,
@@ -37,6 +43,9 @@ import { ComentariosComponent } from './comentarios/comentarios.component';
     ComentarioComponent,
     ComentariosComponent,
     CommentariosComponent,
+    FavoritesComponent,
+    FavoriteComponent,
+    FavoritoDetalleComponent,
      RouterModule,
      CuadropublicacionComponent],
   imports: [

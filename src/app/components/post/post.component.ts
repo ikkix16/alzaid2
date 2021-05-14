@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
-import { Poost } from 'src/app/interfaces/interfaces';
+import { Post } from 'src/app/interfaces/interfaces';
+import { FavoriteService } from 'src/app/services/favorite.service';
 import { PostsService } from 'src/app/services/posts.service';
 import { CommentariosComponent } from '../commentarios/commentarios.component';
 
@@ -12,31 +13,38 @@ import { CommentariosComponent } from '../commentarios/commentarios.component';
 })
 export class PostComponent implements OnInit {
 
-  @Input() poost: Poost = {};
+  @Input() post: Post = {};
 
-  constructor(private postsService: PostsService, private navCtrl: NavController,private modalCtrl: ModalController) { }
+  constructor(private favoriteService: FavoriteService, private navCtrl: NavController,private modalCtrl: ModalController, private postsService: PostsService) { }
 
   
   
   ngOnInit() {}
 
-  eliminarPoost(poost){
+  eliminarPost(post){
 
-    this.postsService.eliminarPoost(poost._id);
+    this.postsService.eliminarPost(post._id);
 
   }
 
- async verPoost(poost){
+ async verPost(post){
 
  const modal = await this.modalCtrl.create({
     component: CommentariosComponent,
     componentProps:{
-      poost
+      post
     }
   })
   modal.present();
  }
 
+
+ favoritoPost(post){
+
+  this.favoriteService.favoritePost(this.post)
+  console.log(post)
+
+ }
  
 
 }

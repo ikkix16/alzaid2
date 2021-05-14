@@ -19,7 +19,7 @@ import { GooglePlus } from "@ionic-native/google-plus/ngx";
 import { ComponentsModule } from './components/components.module';
 import { FormsModule } from '@angular/forms';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: 'http://localhost:3000/', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
  
 @NgModule({

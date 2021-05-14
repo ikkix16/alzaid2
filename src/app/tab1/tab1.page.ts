@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { Poost } from '../interfaces/interfaces';
+
 import { PostsService } from '../services/posts.service';
-import { MenuOption } from '../interfaces/interfaces';
+import { MenuOption, Post } from '../interfaces/interfaces';
 
 
 
@@ -12,7 +12,7 @@ import { MenuOption } from '../interfaces/interfaces';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  poost: Poost[] = [];
+  post: Post[] = [];
 
   scrollActived = true;
 
@@ -28,16 +28,16 @@ export class Tab1Page {
 
     if(pull){
       this.scrollActived =true;
-      this.poost = [];
+      this.post = [];
     }
     this.postsService.getPoost(pull)
     .subscribe(resp =>{
       console.log(resp);
-      this.poost.push(...resp.poost);
+      this.post.push(...resp.post);
 
       if(event){
         event.target.complete();
-        if(resp.poost.length === 0){
+        if(resp.post.length === 0){
             this.scrollActived =false;
          }
       }

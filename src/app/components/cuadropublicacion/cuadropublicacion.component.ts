@@ -21,9 +21,7 @@ export class CuadropublicacionComponent implements OnInit {
 
   crearPoost(){
 
-    this.postsService.crearPoost(this.poost);
-    this.poost.title='';
-    this.poost.description='';
+    this.postsService.crearPost(this.poost);
     
   }
 
