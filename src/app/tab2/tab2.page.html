@@ -1,36 +1,16 @@
-<ion-header no-border>
-  <ion-toolbar>
-    <ion-title>
-      Nuevo Post
-    </ion-title>
+<app-header titulo="Favoritos"></app-header>
 
-    <ion-buttons slot="end">
-      <ion-button (click)="crearPoost()"
-                  color="primary">
-        Compartir
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
 
+  <ion-refresher slot="fixed" (ionRefresh)="recargar($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
+<app-favorites [favorite]="favorite"> </app-favorites>
 
-<ion-content padding>
-
-  <ion-list>
-    
-    <ion-item>
-      <ion-label position="floating">Title</ion-label>
-      <ion-input name="title" type="title"  [(ngModel)]="poost.title"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Description</ion-label>
-      <ion-input name="description" type="description" [(ngModel)]="poost.description"></ion-input>
-    </ion-item>
-
-
-  </ion-list>
-
-
+<ion-infinite-scroll [disabled]= "!scrollActived" threshold="100px" (ionInfinite)="siguientes($event)">
+    <ion-infinite-scroll-content>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
 </ion-content>

@@ -3,7 +3,7 @@ import { Identifiers } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
-import { Poost, RespuestaPoosts, RespuestaComment } from '../interfaces/interfaces';
+import { Post, RespuestaPosts, RespuestaComment } from '../interfaces/interfaces';
 import { UsuarioService } from './usuario.service';
 
 
@@ -28,7 +28,7 @@ export class PostsService {
 
     this.paginaPost ++;
 
-    return this.http.get<RespuestaPoosts>(`${URL}/poost/?pagina=${this.paginaPost}`)
+    return this.http.get<RespuestaPosts>(`${URL}/post/?pagina=${this.paginaPost}`)
   }
 
   getComment(id,pull: boolean = false){
@@ -39,38 +39,38 @@ export class PostsService {
 
     this.paginaPost ++;
     
-    return this.http.get<RespuestaComment>(`${URL}/poost/comments/` +id)
+    return this.http.get<RespuestaComment>(`${URL}/post/comments/` +id)
   }
 
-  crearPoost(poost){
+  crearPost(post){
 
     const headers = new HttpHeaders({
       'x-token': this.usuarioService.token
     });
   
-   this.http.post(`${URL}/poost/poosts`, poost, {headers})
+   this.http.post(`${URL}/post/posts`, post, {headers})
    .subscribe(resp =>{
       console.log(resp);
   });
   }
 
 
-  eliminarPoost(id){
+  eliminarPost(id){
 
-    this.http.delete(`${URL}/poost/delete/` +id)
+    this.http.delete(`${URL}/post/delete/` +id)
     .subscribe(resp=>{
       console.log(resp)
     })
 
   }
 
-  comentarPoost(id,comment){
+  comentarPost(id,comment){
 
     const headers = new HttpHeaders({
       'x-token': this.usuarioService.token
     });
 
-   this.http.post(`${URL}/poost/comment/`  +id,comment)
+   this.http.post(`${URL}/post/comment/`  +id,comment)
     .subscribe(resp=>{
       console.log(resp)
     });

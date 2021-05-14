@@ -8,7 +8,7 @@ import { PostsService } from 'src/app/services/posts.service';
 })
 export class ComentarComponent implements OnInit {
   
-  @Input() poost;
+  @Input() post;
 
   constructor(private postsService : PostsService) { }
 
@@ -18,9 +18,9 @@ export class ComentarComponent implements OnInit {
     description:''
   }
 
-  comentarPoost(poost){
+  comentarPost(post){
 
-    this.postsService.comentarPoost(poost._id,this.comment);
+    this.postsService.comentarPost(post._id,this.comment);
 
   }
 

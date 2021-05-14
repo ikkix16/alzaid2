@@ -10,30 +10,30 @@ import { ComentarComponent } from '../comentar/comentar.component';
   styleUrls: ['./commentarios.component.scss'],
 })
 export class CommentariosComponent implements OnInit {
-  @Input() poost;
+  @Input() post;
   comment: Comment[];
 
   constructor(private postsService: PostsService,private modalCtrl: ModalController) { }
 
 
   ngOnInit() {
-    this.ObtenerComentarios(this.poost);
+    this.ObtenerComentarios(this.post);
   }
 
-  async verPoost(poost){
+  async verPost(post){
 
     const modal = await this.modalCtrl.create({
        component: ComentarComponent,
        componentProps:{
-         poost
+         post
        }
      })
      modal.present();
     }
 
-  ObtenerComentarios(poost){
+  ObtenerComentarios(post){
     this.comment = [];
-    this.postsService.getComment(poost._id)
+    this.postsService.getComment(post._id)
     .subscribe(resp =>{
       console.log(resp);
       this.comment.push(...resp.comment);

@@ -1,10 +1,7 @@
-import { ViewportScroller } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Article } from '../interfaces/interfaces';
-import { DataService } from '../services/data.service';
-import { PostsService } from '../services/posts.service';
-import { NgForm } from '@angular/forms';
+import { Component} from '@angular/core';
+import { Favorite } from '../interfaces/interfaces';
+
+import { FavoriteService } from '../services/favorite.service';
 
 
 @Component({
@@ -14,21 +11,39 @@ import { NgForm } from '@angular/forms';
 })
 export class Tab2Page{
 
-  constructor(private http: HttpClient, private postsService: PostsService, ) {}
+  favorite: Favorite[] = [];
+  
+  scrollActived = true;
 
-  poost= {
-    title: 'Joel',
-    description: 'Luna',
-  };
+  constructor(private favoriteService: FavoriteService) {}
 
   ngOnInit(){
 
+    this.siguientes();
+    
   }
 
-  crearPoost(){
+  siguientes(event?, pull: boolean = false){
 
-    this.postsService.crearPoost(this.poost);
-    
+    if(pull){
+      this.scrollActived =true;
+      this.favorite = [];
+    }
+    this.favoriteService.getFavorites(pull)
+    .subscribe(resp =>{
+      console.log(resp);
+      this.favorite.push(...resp.favorite);
+
+      if(event){
+        event.target.complete();
+        if(resp.favorite.length === 0){
+            this.scrollActived =false;
+         }
+      }
+    });
+  }
+  recargar(event){
+    this.siguientes(event,true);
   }
 
 }

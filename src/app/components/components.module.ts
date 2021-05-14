@@ -15,6 +15,9 @@ import { ComentarioComponent } from './comentario/comentario.component';
 import { ComentariosComponent } from './comentarios/comentarios.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import {FavoritesComponent} from './favorites/favorites.component'
+import {FavoriteComponent} from './favorite/favorite.component'
+import { FavoritoDetalleComponent } from './favorito-detalle/favorito-detalle.component';
 
 
 
@@ -31,9 +34,11 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     ComentariosComponent,
     CommentariosComponent,
     PerfilUsuarioComponent,
-
+    FavoriteComponent,
+    FavoritesComponent,
+    FavoritoDetalleComponent,
     CuadropublicacionComponent],
-  exports: [HeaderComponent,
+  exports:[HeaderComponent,
     MenuComponent,
     PostComponent,
     PostsComponent,
@@ -43,7 +48,12 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     CommentariosComponent,
     RouterModule,
     PerfilUsuarioComponent,
-    CuadropublicacionComponent],
+    CuadropublicacionComponent,
+    FavoriteComponent,
+    FavoritesComponent,
+    FavoritoDetalleComponent,
+     RouterModule,
+     CuadropublicacionComponent],
   imports: [
     CommonModule,
     IonicModule,
