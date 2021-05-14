@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Poost } from 'src/app/interfaces/interfaces';
+import { Post } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-posts',
@@ -8,13 +8,13 @@ import { Poost } from 'src/app/interfaces/interfaces';
 })
 export class PostsComponent implements OnInit {
 
-  @Input() public poost: Poost[] = [];
+  @Input() public post: Post[] = [];
   
   constructor() { }
 
   ngOnInit() {
 
-    console.log(this.poost);
+    console.log(this.post);
   }
 
 }
