@@ -24,58 +24,77 @@
 
     </ion-toolbar>
 
-    <div class="contenido" *ngIf="segment">
-        <ion-list>
-            <ion-item>
-                <ion-input>{{usuario.nombre}}</ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-input type="email">{{usuario.email}}</ion-input>
-            </ion-item>
-            <!-- <ion-item>
+    <form (ngSubmit)="update(fUpdate)" #fUpdate="ngForm">
+
+        <div class="contenido" *ngIf="segment">
+            <ion-list>
+                <ion-item>
+                    <ion-input placeholder="Nombre completo" type="text" [(ngModel)]="updatedUser.nombre" name="nombre" value="{{usuario.nombre}}">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label type="email">{{usuario.email}}</ion-label>
+                </ion-item>
+                <!-- <ion-item>
                 <ion-input>********</ion-input>
             </ion-item> -->
-            <ion-item>
-                <ion-label>Género</ion-label>
-                <ion-select placeholder="Selecciona">
-                    <ion-select-option value="f">Femenino</ion-select-option>
-                    <ion-select-option value="m">Masculino</ion-select-option>
-                </ion-select>
-            </ion-item>
-            <ion-item>
-                <ion-label position="floating">DD/MM/YYYY</ion-label>
-                <ion-datetime displayFormat="DD/MM/YYYY" min="1920-01-01" max="2000-01-01"></ion-datetime>
-            </ion-item>
-            <ion-item>
+
+
+
+                <ion-item>
+                    <ion-label>Genero</ion-label>
+                    <ion-select value="{{usuario.genero}}" type="text" [(ngModel)]="updatedUser.genero"
+                    name="genero" placeholder="Selecciona">
+                        <ion-select-option value="Femenino">Femenino</ion-select-option>
+                        <ion-select-option value="Masculino">Masculino</ion-select-option>
+                    </ion-select>
+                </ion-item>
+
+
+
+                <ion-item>
+
+                    <ion-label position="floating">Fecha de Nacimiento</ion-label>
+                    <ion-datetime displayFormat="DD/MM/YYYY" min="1920-01-01" max="2000-01-01" type="text"
+                        [(ngModel)]="updatedUser.fechaNaci" name="fechaNaci" value="{{usuario.fechaNaci}}"></ion-datetime>
+                </ion-item>
+                <!-- <ion-item>
                 <ion-label>Cuidador principal</ion-label>
                 <ion-select placeholder="Selecciona">
                     <ion-select-option value="true">Si</ion-select-option>
                     <ion-select-option value="false">No</ion-select-option>
                 </ion-select>
-            </ion-item>
-            <ion-item>
-                <ion-label>Tiempo de cuidador</ion-label>
-                <ion-select placeholder="Selecciona">
-                    <ion-select-option value="1">Menos de 1 año</ion-select-option>
-                    <ion-select-option value="2">1 a 3 años</ion-select-option>
-                    <ion-select-option value="3">Más de 3 años</ion-select-option>
-                </ion-select>
-            </ion-item>
-            <ion-item>
-                <ion-label>La persona cuidada es mi:</ion-label>
-                <ion-select placeholder="Selecciona">
-                    <ion-select-option value="1">Pareja</ion-select-option>
-                    <ion-select-option value="2">Papá/Mamá</ion-select-option>
-                    <ion-select-option value="3">Abuelo(a)</ion-select-option>
-                    <ion-select-option value="4">Otro familiar</ion-select-option>
-                    <ion-select-option value="5">Amigo(a)</ion-select-option>
-                </ion-select>
-            </ion-item>
-            <ion-item>
-                <ion-button slot="end" expand="block" shape="round" color="primary">Guardar</ion-button>
-            </ion-item>
-        </ion-list>
-    </div>
+            </ion-item> -->
+                <ion-item>
+                    <ion-label>Tiempo de cuidador</ion-label>
+                    <ion-select value="{{usuario.tiempoCuidado}}" type="text" [(ngModel)]="updatedUser.tiempoCuidado"
+                        name="tiempoCuidado" placeholder="Selecciona">
+                        <ion-select-option value="Menos de 1 año">Menos de 1 año</ion-select-option>
+                        <ion-select-option value="1 a 3 años">1 a 3 años</ion-select-option>
+                        <ion-select-option value="Más de 3 años">Más de 3 años</ion-select-option>
+                    </ion-select>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>La persona cuidada es mi:</ion-label>
+                    <ion-select value="{{usuario.relacion}}" type="text" [(ngModel)]="updatedUser.relacion"
+                        name="relacion" placeholder="Selecciona" placeholder="Selecciona">
+                        <ion-select-option value="Pareja">Pareja</ion-select-option>
+                        <ion-select-option value="Papá/Mamá">Papá/Mamá</ion-select-option>
+                        <ion-select-option value="Abuelo(a)">Abuelo(a)</ion-select-option>
+                        <ion-select-option value="Otro familiar">Otro familiar</ion-select-option>
+                        <ion-select-option value="Amigo(a)">Amigo(a)</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-button color="primary" expand="full" shape="round" size="small" class="margenBotonRegistrar"
+                        type="submit" color="tertiary" shape="round">
+                        Actualizar usuario
+                    </ion-button>
+                </ion-item>
+            </ion-list>
+        </div>
+    </form>
 
     <div class="contenido" *ngIf="!segment">
         <ion-list-header color="light"></ion-list-header>

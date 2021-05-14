@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 import { Usuario } from 'src/app/interfaces/interfaces';
 import { User } from 'src/app/models/user.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -17,13 +19,25 @@ export class ProfilePage implements OnInit {
   usuario:Usuario={};
   
   segment: Boolean = true;
+
+
+  updatedUser = {
+    //email: '',
+   // password: '',
+    nombre: '',
+    fechaNaci: null,
+    tiempoCuidado: '',
+    relacion: '',
+
+  }
   // @ViewChild('barCanvas') barCanvas: ElementRef;
 
   // private barChart: Chart;
   // bars: Chart;
   // colorArray: any;
 
-  constructor(private http:HttpClient,private usuarioService:UsuarioService/*private storage: Storage*/) {
+  constructor(private http:HttpClient,private usuarioService:UsuarioService,
+    private navTabs: NavController/*private storage: Storage*/) {
     /*this.storage.get('usuario').then((val) => {
       this.user = val;
     })*/
@@ -60,6 +74,21 @@ export class ProfilePage implements OnInit {
     }else{
       this.segment = false;
     }
+  }
+
+
+  async update(fUpdate: NgForm) {
+    if (fUpdate.invalid) {
+      return;
+    }
+    const valido = await this.usuarioService.update(this.updatedUser);
+
+    if (valido) {
+      this.navTabs.navigateRoot('/tabs/tab1')
+    }
+    // else {
+    //   this.uiService.alertMenssage('El correo ya existe');
+    // }
   }
 
   // ionViewDidEnter() {

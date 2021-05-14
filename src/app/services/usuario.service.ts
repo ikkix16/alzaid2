@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment';
 import { Usuario } from '../interfaces/interfaces';
 import { map } from "rxjs/operators";
 
+
 const URL = environment.url;
 
 @Injectable({
@@ -126,6 +127,32 @@ export class UsuarioService {
     return new Promise(resolve =>{
 
       this.http.post(`${URL}/user/create`,usuario)
+      .subscribe(async resp =>{
+        console.log(resp);
+        if(resp['ok']){
+          this.storage.create();
+          await this.guardarToken(resp['token']);
+          resolve(true);
+        }else{
+          this.token =null;
+          this.storage.clear();
+          resolve(false);
+        }
+      });
+      
+    })
+
+  }
+
+
+  update(usuario: Usuario ){
+
+    const headers = new HttpHeaders({
+      'x-token': this.token
+    });
+    return new Promise(resolve =>{
+       
+      this.http.post(`${URL}/user/update`,usuario,{headers})
       .subscribe(async resp =>{
         console.log(resp);
         if(resp['ok']){

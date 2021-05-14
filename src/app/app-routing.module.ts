@@ -16,10 +16,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
-  {
-    path: 'chat',
-    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
-   },
+  // {
+  //   path: 'contactos',
+  //   loadChildren: () => import('./contactos/contactos.module').then( m => m.ContactosPageModule)
+  //  },
    {
 
      path: 'register',
@@ -28,7 +28,11 @@ const routes: Routes = [
   {
      path: 'service-detail',
      loadChildren: () => import('./pages/service-detail/service-detail.module').then( m => m.ServiceDetailPageModule)
-   },
+   },  {
+    path: 'contactos',
+    loadChildren: () => import('./contactos/contactos.module').then( m => m.ContactosPageModule)
+  }
+
   
 
 

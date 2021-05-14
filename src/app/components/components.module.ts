@@ -13,14 +13,16 @@ import { FormsModule } from '@angular/forms';
 import { ComentarComponent } from './comentar/comentar.component';
 import { ComentarioComponent } from './comentario/comentario.component';
 import { ComentariosComponent } from './comentarios/comentarios.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 
 
 @NgModule({
-  entryComponents:[
+  entryComponents: [
     CommentariosComponent
   ],
-  declarations: [HeaderComponent, 
+  declarations: [HeaderComponent,
     MenuComponent,
     PostsComponent,
     PostComponent,
@@ -28,8 +30,10 @@ import { ComentariosComponent } from './comentarios/comentarios.component';
     ComentarioComponent,
     ComentariosComponent,
     CommentariosComponent,
-  CuadropublicacionComponent],
-  exports:[HeaderComponent,
+    PerfilUsuarioComponent,
+
+    CuadropublicacionComponent],
+  exports: [HeaderComponent,
     MenuComponent,
     PostComponent,
     PostsComponent,
@@ -37,8 +41,9 @@ import { ComentariosComponent } from './comentarios/comentarios.component';
     ComentarioComponent,
     ComentariosComponent,
     CommentariosComponent,
-     RouterModule,
-     CuadropublicacionComponent],
+    RouterModule,
+    PerfilUsuarioComponent,
+    CuadropublicacionComponent],
   imports: [
     CommonModule,
     IonicModule,

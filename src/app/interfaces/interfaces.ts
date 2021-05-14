@@ -32,6 +32,11 @@ export interface RespuestaPoosts {
   poost: Poost[];
 }
 
+export interface RespuestaPerfil{
+  ok:boolean;
+  usuario:Usuario[];
+}
+
 export interface RespuestaComment {
   ok: boolean;
   comment: Comment[];
@@ -60,5 +65,9 @@ export interface Usuario {
   _id?: string;
   nombre?: string;
   email?: string;
+  genero?:string,
+  fechaNaci?:string,
+  tiempoCuidado?:string,
+  relacion?:string,
   __v?: number;
 }

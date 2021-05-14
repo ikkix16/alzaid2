@@ -10,8 +10,8 @@
 },
 {
     "icon": "mail",
-    "name": "Mensajes",
-    "redirectTo": "tabs/chat"
+    "name": "Contactos",
+    "redirectTo": "tabs/contactos"
 },
 {
     "icon": "chatbubbles-outline",
