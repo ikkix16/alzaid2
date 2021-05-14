@@ -3,7 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ContactosPage } from './contactos.page';
 
-describe('ContactosPage', () => {
+describe('ChatPage', () => {
   let component: ContactosPage;
   let fixture: ComponentFixture<ContactosPage>;
 

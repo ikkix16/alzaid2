@@ -1,49 +1,35 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PerfilUsuarioComponent } from '../components/perfil-usuario/perfil-usuario.component';
-import { ModalController } from '@ionic/angular';
+import { DataService } from '../services/data.service';
+
+
 @Component({
-  selector: 'app-contactos',
-  templateUrl: './contactos.page.html',
-  styleUrls: ['./contactos.page.scss'],
+  selector: 'app-chat',
+  templateUrl: './chat.page.html',
+  styleUrls: ['./chat.page.scss'],
 })
 export class ContactosPage implements OnInit {
-
-   @Input()usuario
-  usuarios: any[] = [];
+  users: any[]=[];
   textoBuscar = '';
-  constructor(private modalCtrl: ModalController,private dataService: DataService) { }
+  
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getUsers().subscribe(usuarios => {
+    this.dataService.getUsers().subscribe(users =>{
 
-      console.log(usuarios)
+      console.log(users)
 
-      this.usuarios = usuarios;
+      this.users=users;
 
     });
 
 
-
-
+   
 
   }
-
- async verUsuarioPerfil(usuario){
-    const modal = await this.modalCtrl.create({
-      component: PerfilUsuarioComponent,
-      componentProps:{
-        usuario
-      }
-    })
-    modal.present();
-   }
-
-
-  
-  buscar(event) {
-    this.textoBuscar = event.detail.value
+  buscar(event){
+    this.textoBuscar=event.detail.value
   }
 
 }
