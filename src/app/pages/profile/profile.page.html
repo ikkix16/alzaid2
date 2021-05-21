@@ -28,7 +28,7 @@
 
         <div class="contenido" *ngIf="segment">
             <ion-list>
-                <ion-item>
+                <ion-item class="items">
                     <ion-input placeholder="Nombre completo" type="text" [(ngModel)]="updatedUser.nombre" name="nombre" value="{{usuario.nombre}}">
                     </ion-input>
                 </ion-item>
@@ -40,19 +40,20 @@
             </ion-item> -->
 
 
-
-                <ion-item>
+            
+                <ion-item class="items">
+                    
                     <ion-label>Genero</ion-label>
                     <ion-select value="{{usuario.genero}}" type="text" [(ngModel)]="updatedUser.genero"
                     name="genero" placeholder="Selecciona">
                         <ion-select-option value="Femenino">Femenino</ion-select-option>
                         <ion-select-option value="Masculino">Masculino</ion-select-option>
                     </ion-select>
+                    
                 </ion-item>
+            
 
-
-
-                <ion-item>
+                <ion-item class="items">
 
                     <ion-label position="floating">Fecha de Nacimiento</ion-label>
                     <ion-datetime displayFormat="DD/MM/YYYY" min="1920-01-01" max="2000-01-01" type="text"
@@ -65,7 +66,7 @@
                     <ion-select-option value="false">No</ion-select-option>
                 </ion-select>
             </ion-item> -->
-                <ion-item>
+                <ion-item class="items">
                     <ion-label>Tiempo de cuidador</ion-label>
                     <ion-select value="{{usuario.tiempoCuidado}}" type="text" [(ngModel)]="updatedUser.tiempoCuidado"
                         name="tiempoCuidado" placeholder="Selecciona">
@@ -75,7 +76,7 @@
                     </ion-select>
                 </ion-item>
 
-                <ion-item>
+                <ion-item class="items">
                     <ion-label>La persona cuidada es mi:</ion-label>
                     <ion-select value="{{usuario.relacion}}" type="text" [(ngModel)]="updatedUser.relacion"
                         name="relacion" placeholder="Selecciona" placeholder="Selecciona">
