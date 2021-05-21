@@ -17,6 +17,8 @@ ion-toolbar ion-menu-button {
     --color: white;
 }
 
+
+
 .speaker-background {
     position: relative;
     display: flex;
@@ -66,4 +68,11 @@ ion-toolbar ion-menu-button {
 
 .contenido {
     margin-top: 45px;
+   
+}
+
+.items{
+    
+    border-style: solid;
+    border-color: blue;
 }
