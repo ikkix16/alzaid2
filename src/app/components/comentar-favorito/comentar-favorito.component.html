@@ -4,21 +4,23 @@
       Comentar
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button class="btn" (click)="comentarPost(post,comment)">
+      <ion-button (click)="comentarFavorite(favorite,comment)"
+              class="btn" >
               Comentar
   </ion-button>
   <ion-buttons end>
-    <ion-button ion-button class="btn" (click)="closeModal()">Close</ion-button>
+    <ion-button class="btn" ion-button (click)="closeModal()">Close</ion-button>
     </ion-buttons>
     </ion-buttons>
   </ion-toolbar>
  
-
 </ion-header>
+
+
 <ion-content padding>
 <ion-item>
   <ion-label>
-    <h1>{{post.title}}</h1>
+    <h1>{{favorite.title}}</h1>
   </ion-label>
 </ion-item>
 <ion-item class="post">

@@ -57,8 +57,24 @@ export class FavoriteService {
 
     this.paginaPost ++;
     
-    return this.http.get<RespuestaComment>(`${URL}/favorite/comments/` +idpost)
+    return this.http.get<RespuestaComment>(`${URL}/favorite/comments/` +idpost);
   }
 
+  eliminarFavorite(id){
+
+    this.http.delete(`${URL}/favorite/delete/` +id)
+    .subscribe(resp=>{
+      console.log(resp);
+    })
+
+  }
+
+  comentarFavorite(idpost,comment){
+
+    this.http.post(`${URL}/favorite/comment/` +idpost,comment).subscribe(resp=>{
+      console.log(resp);
+    })
+
+  }
 
 }

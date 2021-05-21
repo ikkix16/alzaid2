@@ -38,11 +38,13 @@ export interface RespuestaPosts {
 export interface RespuestaPerfil{
   ok:boolean;
   usuario:Usuario[];
+  pagina: number;
 }
 
 export interface RespuestaComment {
   ok: boolean;
   comment: Comment[];
+  pagina: number;
 }
 
 export interface RespuestaFavorites{

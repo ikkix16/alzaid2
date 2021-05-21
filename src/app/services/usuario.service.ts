@@ -18,12 +18,9 @@ export class UsuarioService {
   constructor(private http: HttpClient, private storage: Storage,private navCtrl: NavController){
   }
 
-   
   token: string = null;
   usuario: Usuario ={};
   
-
-
   guardarStorageGoogle(token:string, usuario:Usuario){
     //localStorage.setItem('id',id)
     localStorage.setItem('token',token)
@@ -35,24 +32,16 @@ export class UsuarioService {
   }
   loginGoogle(token:string){
 
-    
-    
       let url = environment.url+'/user/googlelogin/'
-    
-    
-      
+
      return this.http.post(`${URL}/user/googlelogin`,{token})
           .pipe(map((resp:any)=>{
 
       this.guardarStorageGoogle(resp.token,resp.usuario);
       
-      
       return true;
      }));
      
-           
-
-    
   }
 
   login(email: string, password: string){

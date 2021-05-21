@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Favorite } from '../interfaces/interfaces';
 
 import { FavoriteService } from '../services/favorite.service';
@@ -9,41 +9,41 @@ import { FavoriteService } from '../services/favorite.service';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page{
+export class Tab2Page {
 
   favorite: Favorite[] = [];
-  
+
   scrollActived = true;
 
-  constructor(private favoriteService: FavoriteService) {}
+  constructor(private favoriteService: FavoriteService) { }
 
-  ngOnInit(){
+  ngOnInit() {
 
     this.siguientes();
-    
+
   }
 
-  siguientes(event?, pull: boolean = false){
+  siguientes(event?, pull: boolean = false) {
 
-    if(pull){
-      this.scrollActived =true;
+    if (pull) {
+      this.scrollActived = true;
       this.favorite = [];
     }
     this.favoriteService.getFavorites(pull)
-    .subscribe(resp =>{
-      console.log(resp);
-      this.favorite.push(...resp.favorite);
+      .subscribe(resp => {
+        console.log(resp);
+        this.favorite.push(...resp.favorite);
 
-      if(event){
-        event.target.complete();
-        if(resp.favorite.length === 0){
-            this.scrollActived =false;
-         }
-      }
-    });
+        if (event) {
+          event.target.complete();
+          if (resp.favorite.length === 0) {
+            this.scrollActived = false;
+          }
+        }
+      });
   }
-  recargar(event){
-    this.siguientes(event,true);
+  recargar(event) {
+    this.siguientes(event, true);
   }
 
 }

@@ -50,6 +50,17 @@
                           shape="round">
                 Login
               </ion-button>
+
+              <div class="centrar">
+                <div>
+                  <button type="button" id="btnGoogle" class="Google">
+          
+                    <img width="50px" 
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                  
+                     </button>
+                </div>
+              </div>
             </ion-col>
           </ion-row>
 
@@ -60,63 +71,6 @@
 
 
     </ion-slide>
-
-    <ion-slide>
-
-      
-      <ion-grid fixed>
-
-        
-        
-            <form (ngSubmit)="register(fRegister)" #fRegister="ngForm">
-                <ion-row>
-                    <ion-col>
-                        
-                        <ion-list>
-                            
-                            <ion-item>
-                            <ion-label>Email</ion-label>
-                            <ion-input name="email" 
-                                        type="email"
-                                        [(ngModel)]="registerUser.email"
-                                        required></ion-input>
-                            </ion-item>
-
-                            <ion-item>
-                            <ion-label>Nombre</ion-label>
-                            <ion-input name="nombre"
-                                        type="text"
-                                        [(ngModel)]="registerUser.nombre"
-                                        required></ion-input>
-                            </ion-item>
-
-                            <ion-item>
-                            <ion-label>Password</ion-label>
-                            <ion-input name="password"
-                                        type="password"
-                                        [(ngModel)]="registerUser.password"
-                                        required></ion-input>
-                            </ion-item>
-
-                        </ion-list>
-                    </ion-col>
-                </ion-row>
-                
-                <ion-row>
-                <ion-col>
-                    <ion-button type="submit"
-                                color="tertiary"
-                                shape="round">
-                        Crear usuario
-                    </ion-button>
-                </ion-col>
-            </ion-row>
-            
-            </form>
-        </ion-grid>
-  
-  
-      </ion-slide>
 
 
   </ion-slides>
@@ -131,16 +85,7 @@
 
     </ion-buttons> -->
 
-    <div class="centrar">
-      <div>
-        <button type="button" id="btnGoogle">
-
-          <img width="20px" 
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-        
-           </button>
-      </div>
-    </div>
+    
     
   
   </div>
@@ -156,17 +101,6 @@
   <ion-toolbar class="ion-content">
     
     <ion-row>
-
-      <ion-col>
-          <ion-button shape="round"
-                      expand="full"
-                      size="small"
-                      
-                      color="primary">
-            Ingresar
-          </ion-button>
-      </ion-col>
-
       <ion-col>
         <ion-button (click)="registrar2()"
         shape="round"

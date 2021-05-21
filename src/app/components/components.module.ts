@@ -18,6 +18,7 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
 import {FavoritesComponent} from './favorites/favorites.component'
 import {FavoriteComponent} from './favorite/favorite.component'
 import { FavoritoDetalleComponent } from './favorito-detalle/favorito-detalle.component';
+import { ComentarFavoritoComponent } from './comentar-favorito/comentar-favorito.component';
 
 
 
@@ -37,6 +38,7 @@ import { FavoritoDetalleComponent } from './favorito-detalle/favorito-detalle.co
     FavoriteComponent,
     FavoritesComponent,
     FavoritoDetalleComponent,
+    ComentarFavoritoComponent,
     CuadropublicacionComponent],
   exports:[HeaderComponent,
     MenuComponent,
@@ -51,6 +53,7 @@ import { FavoritoDetalleComponent } from './favorito-detalle/favorito-detalle.co
     CuadropublicacionComponent,
     FavoriteComponent,
     FavoritesComponent,
+    ComentarFavoritoComponent,
     FavoritoDetalleComponent,
      RouterModule,
      CuadropublicacionComponent],
